@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 3ce74df21a1d6be4b9474fd8491fcd58
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - A Anggaran Dasar
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 6083c31d3f3d6764ca3d6999bae6a041, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
