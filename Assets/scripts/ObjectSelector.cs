@@ -5,11 +5,17 @@ using UnityEngine;
 public class ObjectSelector : MonoBehaviour
 {
     public int hardStopChance;
+    public GameObject hardStopPrefab;
     public int slowChance;
+    public GameObject slowPrefab;
     public int boostChance;
+    public GameObject boostPrefab;
     public int vBoostChance;
+    public GameObject vBoostPrefab;
     public int hBoostChance;
+    public GameObject hboostPrefab;
     public int mimicChance;
+    public GameObject mimicPrefab;
     int maxRandomVal;
 
     public void Start()
@@ -25,27 +31,27 @@ public class ObjectSelector : MonoBehaviour
 
         if (randomValue < (threshhold = threshhold + hardStopChance))
         {
-            //hard stop object
+            output = hardStopPrefab;
         }
         else if (randomValue < (threshhold = threshhold + slowChance))
         {
-            //slow object
+            output = slowPrefab;
         }
         else if (randomValue < (threshhold = threshhold + boostChance))
         {
-            //boost object
+            output = boostPrefab;
         }
         else if (randomValue < (threshhold = threshhold + vBoostChance))
         {
-            //vertical boost object
+            output = vBoostPrefab;
         }
         else if (randomValue < (threshhold = threshhold + hBoostChance))
         {
-            //horizontal boost object
+            output = hboostPrefab;
         }
         else
         {
-            //mimic object default
+            output = mimicPrefab;
         }
 
         return output;
