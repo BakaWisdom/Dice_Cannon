@@ -23,23 +23,23 @@ public class ObjectSelector : MonoBehaviour
         int randomValue = Random.Range(0, maxRandomVal);
         int threshhold = 0;
 
-        if (randomValue < (threshhold = calculatePercentileRange(threshhold,hardStopChance)))
+        if (randomValue < (threshhold = threshhold + hardStopChance))
         {
             //hard stop object
         }
-        else if (randomValue < (threshhold = calculatePercentileRange(threshhold, slowChance)))
+        else if (randomValue < (threshhold = threshhold + slowChance))
         {
             //slow object
         }
-        else if (randomValue < (threshhold = calculatePercentileRange(threshhold, boostChance)))
+        else if (randomValue < (threshhold = threshhold + boostChance))
         {
             //boost object
         }
-        else if (randomValue < (threshhold = calculatePercentileRange(threshhold, vBoostChance)))
+        else if (randomValue < (threshhold = threshhold + vBoostChance))
         {
             //vertical boost object
         }
-        else if (randomValue < (threshhold = calculatePercentileRange(threshhold, hBoostChance)))
+        else if (randomValue < (threshhold = threshhold + hBoostChance))
         {
             //horizontal boost object
         }
@@ -49,10 +49,5 @@ public class ObjectSelector : MonoBehaviour
         }
 
         return output;
-    }
-
-    private int calculatePercentileRange(int lastThreshold, int chance)
-    {
-        return lastThreshold + chance * maxRandomVal / 100;
     }
 }
