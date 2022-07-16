@@ -5,7 +5,6 @@ using System;
 
 public class CannonController : MonoBehaviour
 {
-    public GameObject Cannon;
     public GameObject DicePrefab;
     public Transform firePoint;
     public float Speed;
@@ -20,8 +19,8 @@ public class CannonController : MonoBehaviour
     void Start()
     {
         //(x, y) init Cannon position for calculations place holder
-        CannonPos = Cannon.transform.position;
-        radIncline = Cannon.transform.localEulerAngles.z * Mathf.PI / 180;
+        //CannonPos = Cannon.transform.position;
+        //radIncline = Cannon.transform.localEulerAngles.z * Mathf.PI / 180;
         //could do a call to the cannon object for quick updates for what feels/looks right
         int maxRotDegree = 5;
         maxRotationPerFrame = maxRotDegree * MathF.PI / 180;
@@ -75,7 +74,17 @@ public class CannonController : MonoBehaviour
 
     private float CalcNewIncline(Vector2 angleVector, float oldRadIncline)
     {
-        float newRadIncline = Mathf.Atan(angleVector.y / angleVector.x);
+        float newRadIncline = (Mathf.Atan(angleVector.y / angleVector.x));
+
+        if(newRadIncline > Mathf.PI/2)
+        {
+            return oldRadIncline;
+        }
+
+        if(newRadIncline < 0)
+        {
+            return oldRadIncline;
+        }
 
         //if (MathF.Abs(oldRadIncline - newRadIncline) >= maxRotationPerFrame)
         //{

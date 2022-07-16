@@ -134,7 +134,6 @@ GameObject:
   - component: {fileID: 127528085}
   - component: {fileID: 127528084}
   - component: {fileID: 127528086}
-  - component: {fileID: 127528087}
   m_Layer: 0
   m_Name: Cannon
   m_TagString: Untagged
@@ -226,18 +225,6 @@ MonoBehaviour:
   DicePrefab: {fileID: 1642081932}
   firePoint: {fileID: 2117140751}
   Speed: 10
---- !u!114 &127528087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 127528083}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f440e72cb6d7331499565f96c2508456, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &690611880
 GameObject:
   m_ObjectHideFlags: 0
