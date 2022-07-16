@@ -11,10 +11,10 @@ public class MouseInputs : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //(x, y) init Cannon position for calculations place holder
+        //(x, y) TODO update to cannon anchor location
         CannonPos = new Vector2(5, 3);
         radIncline = 45;
-        //could do a call to the cannon object for quick updates for what feels/looks right
+        //TODO tie this into cannon object
         int maxRotDegree = 5;
         maxRotationPerFrame = maxRotDegree * MathF.PI / 180;
     }
@@ -32,10 +32,11 @@ public class MouseInputs : MonoBehaviour
         {
             Debug.Log(Input.mousePosition);
 
-            //if in cannon scene fire cannon
+            //TODO if in cannon scene fire cannon or ready to fire
             if(false)
             {
-                //fire cannon
+                //TODO get power
+                //TODO fire cannon
             }
         }
     }
