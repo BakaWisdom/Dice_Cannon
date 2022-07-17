@@ -11,47 +11,36 @@ public class CannonController : MonoBehaviour
 
     private bool isFiring = false;
     private Camera _cam;
+    private float _maxDegree = 85;
+    private float _minDegree = 5;
 
-    Vector3 CannonPos;
-    float radIncline;
-    float maxRotationPerFrame;
+    private float radIncline;
+
     // Start is called before the first frame update
     void Start()
     {
-        //(x, y) init Cannon position for calculations place holder
-        //CannonPos = Cannon.transform.position;
-        //radIncline = Cannon.transform.localEulerAngles.z * Mathf.PI / 180;
-        //could do a call to the cannon object for quick updates for what feels/looks right
-        int maxRotDegree = 5;
-        maxRotationPerFrame = maxRotDegree * MathF.PI / 180;
-
         _cam = Camera.main;
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Get angle for cannon incline
         Vector2 angleVector = _cam.ScreenToWorldPoint(Input.mousePosition) - transform.localPosition;
         radIncline = CalcNewIncline(angleVector, radIncline);
-        transform.eulerAngles = new Vector3(0, 0, radIncline * 180/Mathf.PI);
 
-        //Vector3 mouse = Input.mousePosition;
-        //Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(new Vector3(
-        //                                                    mouse.x,
-        //                                                    mouse.y,
-        //                                                    transform.position.y));
-        //Vector3 forward = mouseWorld - transform.position;
-        //transform.rotation = Quaternion.LookRotation(forward, Vector3.up);
+        // Rotate Cannon
+        transform.eulerAngles = new Vector3(0, 0, radIncline * 180/Mathf.PI);
 
         //Left click
         if (Input.GetMouseButtonDown(0))
         {
-            
-            //rotate cannon
-
             //if in cannon scene fire cannon
-            if (true)
+            if (!isFiring)
             {
+                // Disabling because it's cooler to look at while testing
+                //isFiring = true; 
+
                 //fire cannon
                 Launch();
             }
@@ -76,27 +65,17 @@ public class CannonController : MonoBehaviour
     {
         float newRadIncline = (Mathf.Atan(angleVector.y / angleVector.x));
 
-        if(newRadIncline > Mathf.PI/2)
+        Debug.Log(newRadIncline);
+
+        if(newRadIncline > (_maxDegree * Mathf.Deg2Rad))
         {
             return oldRadIncline;
         }
 
-        if(newRadIncline < 0)
+        if(newRadIncline < (_minDegree * Mathf.Deg2Rad))
         {
             return oldRadIncline;
         }
-
-        //if (MathF.Abs(oldRadIncline - newRadIncline) >= maxRotationPerFrame)
-        //{
-        //    if (oldRadIncline > newRadIncline)
-        //    {
-        //        newRadIncline = oldRadIncline - maxRotationPerFrame;
-        //    }
-        //    else
-        //    {
-        //        newRadIncline = oldRadIncline + maxRotationPerFrame;
-        //    }
-        //}
 
         return newRadIncline;
     }
