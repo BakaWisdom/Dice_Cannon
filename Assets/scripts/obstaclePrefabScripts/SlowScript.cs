@@ -6,13 +6,17 @@ using UnityEngine.UI;
 public class SlowScript : MonoBehaviour
 {
     Image imageComponent;
+    public Sprite[] possibleSprites;
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("starting slow script for prefab");
         imageComponent = GetComponent<Image>();
-        int imageNum = Random.Range(0, 2);
-        //TODO need to test filepath
-        imageComponent.sprite = (Sprite) Resources.Load("Assets/Art/Obstacles/Slow" + imageNum + ".png");
+        int imageNum = Random.Range(0, possibleSprites.Length);
+
+        imageComponent.sprite = possibleSprites[imageNum];
+
+
     }
 
     // Update is called once per frame
