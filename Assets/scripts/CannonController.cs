@@ -41,6 +41,9 @@ public class CannonController : MonoBehaviour
                 // Disabling because it's cooler to look at while testing
                 //isFiring = true; 
 
+                PlayerPrefs.SetFloat("Speed", Speed);
+                PlayerPrefs.SetFloat("Angle", radIncline);
+
                 //fire cannon
                 Launch();
             }
