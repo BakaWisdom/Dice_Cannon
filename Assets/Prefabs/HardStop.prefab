@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4390273068634807665}
   - component: {fileID: -6780464137120874394}
   - component: {fileID: 5423142349288299179}
-  - component: {fileID: 4292517557468529333}
   - component: {fileID: 9173068906358506780}
   - component: {fileID: 7495200698778574775}
+  - component: {fileID: 4684374048035798086}
   m_Layer: 0
   m_Name: HardStop
   m_TagString: Untagged
@@ -88,19 +88,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &4292517557468529333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1491630008370920599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77c6baaf7a5e74a459086b368f9cb449, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
 --- !u!222 &9173068906358506780
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -139,3 +126,17 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4684374048035798086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491630008370920599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 993b3bf7cf4ac0e4ba22ff2f2a132fe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  xStart: 0

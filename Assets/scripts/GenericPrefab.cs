@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Obstacles : MonoBehaviour
+public class GenericPrefab : MonoBehaviour
 {
-    public float speed = 10.0f; //TODO set to dice v speed
+    public float speed = 10.0f; //TODO needs to be based on die velocity
     private Rigidbody2D rigBod;
     private BoxCollider2D boxyCollider;
     private Vector2 screenBounds;
-    public float xStart; //This should be constant amongst all obstacles y might change a little?
+    public float xStart; //TODO set this to constant when good speed found.
+    public float yStart;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,7 @@ public class Obstacles : MonoBehaviour
         rigBod.velocity = new Vector2(-speed, 0);
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
 
-        transform.position = new Vector3(xStart, transform.position.y);
+        transform.position = new Vector3(xStart, yStart);
     }
 
     // Update is called once per frame
