@@ -8,7 +8,7 @@ public class GenericPrefab : MonoBehaviour
     private Rigidbody2D rigBod;
     private BoxCollider2D boxyCollider;
     private Vector2 screenBounds;
-    public float xStart; //TODO set this to constant when good speed found.
+    private float xStart; //TODO set this to constant when good speed found.
     public float yStart;
 
     // Start is called before the first frame update
@@ -18,6 +18,7 @@ public class GenericPrefab : MonoBehaviour
         rigBod = GetComponent<Rigidbody2D>();
         rigBod.velocity = new Vector2(-speed, 0);
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+        xStart = screenBounds.x * -2;
 
         transform.position = new Vector3(xStart, yStart);
     }

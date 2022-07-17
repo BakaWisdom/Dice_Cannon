@@ -14,26 +14,41 @@ public class ObjectSelector : MonoBehaviour
     public GameObject vBoostPrefab;
     public int hBoostChance;
     public GameObject hboostPrefab;
-    public int mimicChance;
-    public GameObject mimicPrefab;
     int maxRandomVal;
+
+    private float spawnTime = 1.0f;
 
     public void Start()
     {
-        maxRandomVal = hardStopChance + slowChance + boostChance + vBoostChance + hBoostChance + mimicChance;
+        maxRandomVal = hardStopChance + slowChance + boostChance + vBoostChance + hBoostChance;
+    }
+    private void SpawnObstacle()
+    {
+        GameObject newObstacle = Instantiate(GetNextObstacle());
+        
+        //locations set in generic object script currently.
+    }
+    IEnumerator ObjectWave()
+    {
+        //while dice still rolling, while velocity is 0 or still playing
+        while(true)
+        {
+            yield return new WaitForSeconds(spawnTime);
+
+            //TODO make function of dice speed ex. 10 / velocity.x
+            spawnTime = Random.Range(0.1f, 1);
+
+            SpawnObstacle();
+        }
     }
 
-    public GameObject GetNextObstacle()
+    private GameObject GetNextObstacle()
     {
-        GameObject output = new GameObject();
+        GameObject output;
         int randomValue = Random.Range(0, maxRandomVal);
         int threshhold = 0;
 
-        if (randomValue < (threshhold = threshhold + hardStopChance))
-        {
-            output = hardStopPrefab;
-        }
-        else if (randomValue < (threshhold = threshhold + slowChance))
+        if (randomValue < (threshhold = threshhold + slowChance))
         {
             output = slowPrefab;
         }
@@ -49,12 +64,10 @@ public class ObjectSelector : MonoBehaviour
         {
             output = hboostPrefab;
         }
-        else
+        else //hardstop default
         {
-            output = mimicPrefab;
+            output = hardStopPrefab;
         }
-
-        //TODO set object location? or handled on return...
 
         return output;
     }
