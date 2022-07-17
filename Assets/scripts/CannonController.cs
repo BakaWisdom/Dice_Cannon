@@ -10,6 +10,7 @@ public class CannonController : MonoBehaviour
     public float Speed;
 
     private bool isFiring = false;
+    private bool hasFired;
     private Camera _cam;
 
     Vector3 CannonPos;
@@ -24,6 +25,8 @@ public class CannonController : MonoBehaviour
         //could do a call to the cannon object for quick updates for what feels/looks right
         int maxRotDegree = 5;
         maxRotationPerFrame = maxRotDegree * MathF.PI / 180;
+
+        hasFired = false;
 
         _cam = Camera.main;
     }
@@ -50,8 +53,9 @@ public class CannonController : MonoBehaviour
             //rotate cannon
 
             //if in cannon scene fire cannon
-            if (true)
+            if (!hasFired)
             {
+                hasFired = true;
                 //fire cannon
                 Launch();
             }
@@ -76,12 +80,12 @@ public class CannonController : MonoBehaviour
     {
         float newRadIncline = (Mathf.Atan(angleVector.y / angleVector.x));
 
-        if(newRadIncline > Mathf.PI/2)
+        if(newRadIncline > 85 * Mathf.Deg2Rad)
         {
             return oldRadIncline;
         }
 
-        if(newRadIncline < 0)
+        if(newRadIncline < 5 * Mathf.Deg2Rad)
         {
             return oldRadIncline;
         }
