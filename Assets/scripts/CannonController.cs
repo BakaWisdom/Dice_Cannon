@@ -65,8 +65,6 @@ public class CannonController : MonoBehaviour
     {
         float newRadIncline = (Mathf.Atan(angleVector.y / angleVector.x));
 
-        Debug.Log(newRadIncline);
-
         if(newRadIncline > (_maxDegree * Mathf.Deg2Rad))
         {
             return oldRadIncline;
