@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9f163d0dfbcbe34e92f2ed92bdd19fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  possibleSprites: []
 --- !u!222 &8623865007408940751
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -102,3 +103,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9f163d0dfbcbe34e92f2ed92bdd19fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  possibleSprites:
+  - {fileID: 21300000, guid: ba07d02081268614284a073d60334940, type: 3}
+  - {fileID: 21300000, guid: 0361d0590e2e0ef49a5f24f05400d5a9, type: 3}

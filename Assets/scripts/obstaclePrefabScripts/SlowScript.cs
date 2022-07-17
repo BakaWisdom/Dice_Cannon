@@ -10,7 +10,6 @@ public class SlowScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("starting slow script for prefab");
         imageComponent = GetComponent<Image>();
         int imageNum = Random.Range(0, possibleSprites.Length);
 
