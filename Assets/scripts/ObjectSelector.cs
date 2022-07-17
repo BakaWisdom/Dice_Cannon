@@ -54,6 +54,8 @@ public class ObjectSelector : MonoBehaviour
             output = mimicPrefab;
         }
 
+        //TODO set object location? or handled on return...
+
         return output;
     }
 }
