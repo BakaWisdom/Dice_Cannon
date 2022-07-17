@@ -16,16 +16,17 @@ public class Dice : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.Rotate(new Vector3(0, 0, -3));
 
         if(transform.position.x > _screenBounds.x)
         {
             Destroy(this.gameObject);
-            SceneManager.LoadScene(2);
+            //SceneManager.LoadScene(2);
         }
         else if(transform.position.y > _screenBounds.y)
         {
             Destroy(this.gameObject);
-            SceneManager.LoadScene(2);
+            //SceneManager.LoadScene(2);
         }
     }
 }
