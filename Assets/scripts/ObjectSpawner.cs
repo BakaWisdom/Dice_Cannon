@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectSelector : MonoBehaviour
+public class ObjectSpawner : MonoBehaviour
 {
     public int hardStopChance;
     public GameObject hardStopPrefab;
@@ -15,16 +15,21 @@ public class ObjectSelector : MonoBehaviour
     public int hBoostChance;
     public GameObject hboostPrefab;
     int maxRandomVal;
+    public float surfaceLoc = 5;
+    Vector3 screenBounds;
 
     private float spawnTime = 1.0f;
 
     public void Start()
     {
         maxRandomVal = hardStopChance + slowChance + boostChance + vBoostChance + hBoostChance;
+        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
+        StartCoroutine(ObjectWave());
     }
     private void SpawnObstacle()
     {
         GameObject newObstacle = Instantiate(GetNextObstacle());
+        newObstacle.transform.position = new Vector2(screenBounds.x * -2, surfaceLoc - screenBounds.y);
         
         //locations set in generic object script currently.
     }
@@ -47,6 +52,8 @@ public class ObjectSelector : MonoBehaviour
         GameObject output;
         int randomValue = Random.Range(0, maxRandomVal);
         int threshhold = 0;
+
+        //return slowPrefab;
 
         if (randomValue < (threshhold = threshhold + slowChance))
         {
