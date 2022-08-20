@@ -35,7 +35,7 @@ public class ObjectSpawner : MonoBehaviour
     }
     IEnumerator ObjectWave()
     {
-        //while dice still rolling, while velocity is 0 or still playing
+        //TODO while dice still rolling, while velocity is 0 or still playing
         while(true)
         {
             yield return new WaitForSeconds(spawnTime);
